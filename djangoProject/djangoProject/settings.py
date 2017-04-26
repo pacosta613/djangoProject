@@ -1,5 +1,10 @@
 # Django settings for djangoProject project.
 
+import os
+SETTINGS_DIR = os.path.dirname(__file__)
+PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_ROOT = os.path.abspath(PROJECT_PATH)
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -108,6 +113,7 @@ ROOT_URLCONF = 'djangoProject.urls'
 WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates')
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -126,7 +132,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django.contrib.admin',
     'myapp',
-    'south'
+    'south',
+    'markdown_deux'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
